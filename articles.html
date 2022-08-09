@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+    <link rel="stylesheet" href="./styles/news.css">
+    
+
+  </head>
+
+  <body>
+   
+
+    <div id="container">
+      
+
+      <div id="main">
+       
+      </div>
+    </div>
+  </body>
+</html>
+
+<script type="module">
+ 
+
+  let news = JSON.parse(localStorage.getItem('articles')) || [];
+  console.log('news:', news)
+  displayData();
+
+
+  function displayData() {
+
+    let imgDiv = document.createElement('div');
+    let img = document.createElement('img');
+    img.src = news.urlToImage;
+    imgDiv.append(img);
+
+    let detail = document.createElement('div');
+
+    let date = document.createElement('h3')
+    date.innerHTML = news.publishedAt;
+
+    let title = document.createElement('h1');
+    title.innerHTML =  news.title;
+
+    let content = document.createElement('h2');
+    content.innerHTML = news.content;
+
+    detail.append(title,content,date);
+    
+    document.querySelector('#main').append(imgDiv,detail);
+
+  }
+
+
+</script>

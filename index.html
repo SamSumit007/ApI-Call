@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    
+  </head>
+
+  <body>
+    <div id="container">
+      
+      <div id="main">
+       
+      </div>
+      <div class="buton">
+        <button class="top">Top 10 comments</button>
+        <button class="letest">Letest 10 comments</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<script type="module">
+
+import {apiCall,appendArticles} from './scripts/main.js';
+
+
+let main = document.querySelector('#main');
+
+let topNews = async () => {
+
+    let data = await apiCall(`https://shrouded-earth-23381.herokuapp.com/api/headlines/india`);
+
+    appendArticles(data,main);
+}
+
+topNews();
+
+
+</script>
